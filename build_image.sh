@@ -1,1 +1,1 @@
-docker build --rm=true -t bioxfu/shiny-server .
+sudo docker build --rm=true -t bioxfu/shiny-server .

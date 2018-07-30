@@ -32,6 +32,9 @@ RUN wget https://bioconductor.org/packages/release/bioc/src/contrib/DECIPHER_2.8
 
 RUN R -e "install.packages('DT', repos='http://mirrors.ustc.edu.cn/CRAN/')"
 
+RUN wget https://bioconductor.org/packages/release/bioc/src/contrib/drawProteins_1.0.0.tar.gz;\
+    R CMD INSTALL drawProteins_1.0.0.tar.gz;
+
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh

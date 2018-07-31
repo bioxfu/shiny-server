@@ -32,6 +32,10 @@ RUN wget https://bioconductor.org/packages/release/bioc/src/contrib/DECIPHER_2.8
 
 RUN R -e "install.packages('DT', repos='http://mirrors.ustc.edu.cn/CRAN/')"
 
+RUN R -e "install.packages('devtools', repos='http://mirrors.ustc.edu.cn/CRAN/')"
+
+RUN R -e "require(devtools); install_github('rCharts', 'ramnathv')"
+
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh

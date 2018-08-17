@@ -35,6 +35,14 @@ RUN R -e "install.packages('DT', repos='http://mirrors.ustc.edu.cn/CRAN/')"
 RUN R -e "install.packages('devtools', repos='http://mirrors.ustc.edu.cn/CRAN/')"
 
 RUN R -e "require(devtools); install_github('rCharts', 'ramnathv')"
+ 
+RUN apt-get install -y libmariadb-client-lgpl-dev
+
+RUN R -e "install.packages('RMySQL', repos='http://mirrors.ustc.edu.cn/CRAN/')"
+
+RUN R -e "options(BioC_mirror='http://mirrors.ustc.edu.cn/bioc/'); source('http://bioconductor.org/biocLite.R'); biocLite('Gviz')"
+
+RUN apt-get install -y parallel
 
 EXPOSE 3838
 

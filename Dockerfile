@@ -1,5 +1,5 @@
-# Version: 0.0.1
-FROM ubuntu:16.04
+# Version: 0.0.2
+FROM ubuntu:18.04
 
 MAINTAINER Xing Fu "bio.xfu@gmail.com"
 
@@ -11,9 +11,9 @@ RUN echo 'deb http://mirrors.ustc.edu.cn/CRAN/bin/linux/ubuntu xenial/' >> /etc/
     apt-get autoremove
 
 # https://www.rstudio.com/products/shiny/download-server/
-RUN wget https://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.5.6.875-amd64.deb; \
-    gdebi -n shiny-server-1.5.6.875-amd64.deb; \
-    rm /shiny-server-1.5.6.875-amd64.deb
+RUN wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.15.953-amd64.deb; \
+    gdebi shiny-server-1.5.15.953-amd64.deb; \
+    rm /gdebi shiny-server-1.5.15.953-amd64.deb
 
 RUN R -e "install.packages(c('shiny', 'rmarkdown', 'tidyverse', 'gplots', 'plotrix', 'VennDiagram', 'httr', 'data.table', 'jsonlite', 'shinydashboard'), repos='http://mirrors.ustc.edu.cn/CRAN/')"
 

@@ -3,9 +3,7 @@ FROM ubuntu:18.04
 
 MAINTAINER Xing Fu "bio.xfu@gmail.com"
 
-RUN echo 'deb http://mirrors.ustc.edu.cn/CRAN/bin/linux/ubuntu xenial/' >> /etc/apt/sources.list; \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9; \
-    apt-get update; \
+RUN apt-get update; \
     apt-get install -y r-base r-base-dev libcurl4-openssl-dev libxml2-dev gdebi-core libapparmor1 psmisc supervisor libedit2 wget libssl-dev pdftk; \
     apt-get clean; \
     apt-get autoremove
